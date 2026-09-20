@@ -1,26 +1,24 @@
 'use strict';
 
-/***
+/**
  * @return {function}
  */
-function makeInfinityAdder() {
+function makeAdder() {
   let sum = 0;
 
   return function adder(num) {
-    // Якщо функцію викликано без аргументів ()
     if (num === undefined) {
       const result = sum;
 
-      sum = 0; // Скидаємо накопичене значення
+      sum = 0;
 
-      return result; // Повертаємо підсумок (число)
+      return result;
     }
 
-    // Якщо передано число — додаємо його
     sum += num;
 
     return adder;
   };
 }
 
-module.exports = makeInfinityAdder;
+module.exports = makeAdder;
